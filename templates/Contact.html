@@ -1,0 +1,38 @@
+{% extends 'Base.html' %}
+{% load static %}
+
+{% block style %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contac.css' %}">
+{% endblock style %}
+
+{% block content %}
+
+<section class="cards contact" id="contact">
+    <h2 class="title">Let's work together</h2>
+    <div class="content">
+        <div class="card">
+            <div class="icon">
+                <i class="fas fa-phone"></i>
+            </div>
+            <div class="info">
+                <h3>Phone</h3>
+                <p>+201554783023</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="icon">
+                <i class="fas fa-envelope"></i>
+            </div>
+            <div class="info">
+                <h3>Email</h3>
+                <p>201285426758oh@gmail.com</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+

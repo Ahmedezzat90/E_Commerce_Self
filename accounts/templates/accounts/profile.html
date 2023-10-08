@@ -1,0 +1,89 @@
+{% extends "base_generic.html" %}
+{% load static %}
+
+{% block style %}
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Profile</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        .profile-container{
+            margin-top: 100px;
+            margin-left: 50px;
+
+        }
+        .profile-container img{
+            width: 366px; 
+            height: 206px; 
+            object-fit: cover; 
+        }
+        .profile-container .main_btn{
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .profile-container .main_btn button{
+            padding: 10px 20px;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            color: #fff;
+            background-color: #3a6cf5;
+            transition: all 0.3s ease-in-out;
+        }
+        .profile-container .main_btn button:hover{
+            background-color: #3a6cf5;
+            transform: scale(1.1);
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+<nav class="navbar">
+    <div class="brand-title" >E-Commerce</div>
+        <div class="navbar-links">
+            <a href="{% url 'Home_page' %}">Home</a>
+            <a href="{% url 'Contact' %}">Contact</a> 
+            {% comment %} 
+            {% if user.is_authenticated %}
+                <a href="{% url 'login' %}">Login</a>
+            {% else %}
+                <a href="{% url 'logout' %}">Logout</a>
+            {% endif %} 
+            {% endcomment %}
+        </div>
+    </div>
+</nav>
+
+<div class="profile-container">
+    <div class="container">
+        <h2>Your Profile</h2>
+        <p><strong>Username:</strong> {{ profile.user.username }}</p>
+        <p><strong>First Name:</strong> {{ profile.user.first_name }}</p>
+        <p><strong>Last Name:</strong> {{ profile.user.last_name }}</p>
+        <p><strong>Email:</strong> {{ profile.user.email }}</p>
+        {% if profile.image %}
+            <img src="{{ profile.image.url }}" alt="Profile Image">
+        {% else %}
+            <p>No profile image available</p>
+        {% endif %}
+        <div class="main_btn">
+            <form method="post" action="{% url 'accounts:profile_edit' %}" >
+                {% csrf_token %}
+                <input type="hidden" name="profile_edit" value="{{ profile.user }}">
+                <button type="submit" style="background-color: #3a6cf5";>Profile Edit</button>
+            </form> 
+        </div>
+    </div>
+</div>
+
+{% endblock %}

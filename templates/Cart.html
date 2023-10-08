@@ -1,0 +1,55 @@
+{% extends 'Base.html' %}
+{% load static %}
+
+{% block style %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart Page</title>
+    <!-- Add your CSS styles here -->
+    
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Shopping Cart</h1>
+    <table class="cart-table">
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Brand</th>
+                <th>Stock</th>
+                <th>CreateAt</th>
+                <th>Available</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in Product %}
+            <tr>
+                <td><img src="{{ product.image.url }}" alt="{{ product.name }} Image" style="max-width: 100px;"></td>
+                <td>{{ product.name }}</td>
+                <td>{{ product.description }}</td>
+                <td>{{ product.price }}</td>
+                <td>{{ product.brand }}</td>
+                <td>{{ product.stock }}</td>
+                <td>{{ product.createAt }}</td>
+                <td>{{ product.availabe }}</td>
+                <td>
+                    <form method="post" action="{% url 'remove_from_cart' product.id %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger">Remove</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <form method="post" action="{% url 'clear_cart' %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Clear Cart</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "Base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row mt-5">
+        <h3 class="mb-3 bg-light p-2">Add Category</h3>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <th><label for="{{ Category_form.name.id_for_label }}">Name:</label></th>
+            {{ Category_form.name }}
+            <br>
+            <button type="submit" class="btn btn-success">Add Category</button>
+            <a type="button" class="btn btn-danger" href="{% url 'All_category' %}">Cancel</a>
+
+        </form>
+
+    </div>
+</div>
+
+{%endblock%}

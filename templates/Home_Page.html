@@ -1,0 +1,66 @@
+{% extends 'Base.html' %}
+{% load static %}
+
+
+{% block style %}
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Home Page</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+{% endblock %}
+
+{% block content %}
+<nav class="navbar">
+    <div class="brand-title" >E-Commerce</div>
+        <div class="navbar-links">
+            <a href="{% url 'Home_page' %}">Home</a>
+            <a href="{% url 'Contact' %}">Contact</a> 
+            {% if request.user.is_authenticated or logout %}
+                <a href="{% url 'login' %}">Login</a>
+            {% else %}
+                <a href="{% url 'Cart_page' %}">Cart</a>
+                <a href="{% url 'accounts:profile' %}">Profile</a>
+                <a href="{% url 'logout' %}">Logout</a>
+            {% endif %}
+        </div>
+    </div>
+</nav>
+
+<div class="all">
+    <div class="container">
+        <div class="content">
+            
+            {% for Product in Products %}
+            <div class="product">
+                <div class='product_card'> 
+                    <p class="product_image">
+                    {% if Product.image %}
+                        <img src="{{ Product.image.url }}" alt="{{ Product.name }} Image" style="max-width: 340px; margin-top: 10px;">
+                    {% else %}
+                        <p>No image available</p>
+                    {% endif %}   </p>
+                    <div class="product_info">
+                        <a href="{% url  'All_product_id' Product.id %}" class="btn btn-success text-light">{{ Product.name }}</a>
+                        <p></p>
+                        <p class="category">Category: {{ Product.category }}</p>
+                        <p class="description"> Description: {{ Product.description }}</p>
+                        <p class="price">Price: {{ Product.price }}</p>
+                        <p class="brand">Brand: {{ Product.brand }}</p>
+                        <p class="availabe">Availabe: {{ Product.availabe }}</p>
+                    </div>
+                    {% if Product.availabe %}
+                    <div class="main_btn">
+                        <form method="post" action="{% url 'Add_to_cart' Product.id %}" >
+                            {% csrf_token %}
+                            <input type="hidden" name="Product_id" value="{{ product.id }}">
+                            <button type="submit" style="background-color: #3a6cf5";>Add to Cart</button>
+                        </form> 
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock  %}

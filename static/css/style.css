@@ -1,0 +1,116 @@
+/* static/css/style.css */
+
+/* Navbar styling */
+*{
+    font-family: 'Poppins', sans-serif;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+.navbar {
+    background-color: #f0f0f0;
+    width: 100%;
+    position: fixed;
+    z-index: 999;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 85px ;
+}
+
+.brand-title {
+    text-decoration: none;
+    padding-left: 120px;
+    color: #3a6cf4;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1.8em;
+}
+
+.navbar-links a {
+    padding-left: 30px;
+    padding-right: 20px;
+    text-decoration: none;
+    color: #3a6cf4;
+    font-weight: 600;
+    font-size: 1.1em;
+}
+
+.navbar-links a:hover {
+    color: #624a98;
+}
+
+.all {
+    background-color: #624a98;
+    background-size: cover; /* Scale the image to cover the entire screen */
+    background-size: cover;
+    position: fixed; /* Fix the background in place */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.content {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.product{
+    padding-top: 80px;
+}
+
+.product .info{
+    margin-top: 50px;
+}
+
+.product_card {
+    background-color: #f0f0f0;
+    border: 2px solid  #f0f0f0c8;
+    min-height: 14em;
+    width: 23em;
+    overflow: hidden;
+    border-radius: 10px;
+    padding-left: 10px;
+    margin: 20px;
+    transition: 0.7s ease;
+}
+
+.product-card:hover {
+    transform: scale(1.1);
+}
+
+.product-card:hover .project-image {
+    opacity: 0.9;
+}
+
+.product-image img{
+    /* width: 100%; */
+    width: 366px; /* يمكنك تعديل هذا الرقم حسب حاجتك */
+    height: 206px; /* يمكنك تعديل هذا الرقم حسب حاجتك */
+    object-fit: cover; /* هذا سيحافظ على تناسب الصور مع عدم التأثير على نسب الأبعاد */
+
+}
+
+.main_btn {
+    color: #fff;
+    background-color: #3a6cf5;
+    text-decoration: none;
+    font-size: 0.65em;
+    font-weight: 600;
+    display: inline-block;
+    padding: 0.9375em 2.1875em;
+    letter-spacing: 1px;
+    border-radius: 15px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    transition: 0.7s ease;
+    
+}
+
+.main_btn:hover {
+    background-color: #0a49f6;
+    transform: scale(1.1);
+}
+

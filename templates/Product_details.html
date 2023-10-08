@@ -1,0 +1,36 @@
+{% extends 'Base.html' %}
+{% load static %}
+
+
+{% block style %}
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Product Detalis</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style1.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="product">
+    <div class="content">
+        <div class='product_card' >
+            <p class="product_image">
+            {% if Products.image %}
+            <img src="{{ Products.image.url }}" alt="{{ Products.name }} Image" style="max-width: 320px; margin-top: 20px;">
+            {% else %}
+            <p>No image available</p>
+            {% endif %}   
+            </p>
+            <div class='product_info'>
+                <p class="name">Name: {{ Products.name }}</p>
+                <p class="description">Description: {{ Products.description }}</p>
+                <p class="price">Price: {{ Products.price }}</p>
+                <p class="brand">Brand: {{ Products.brand }}</p>
+                <p class="stock">Stock: {{ Products.stock }}</p>
+                <p class="createAt">CreateAt: {{ Products.createAt }}</p>
+                <p class="availabe">Availabe: {{ Products.availabe }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock  %}

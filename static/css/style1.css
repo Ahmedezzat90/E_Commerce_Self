@@ -1,0 +1,45 @@
+
+body{
+    margin: 60px;
+    background-color: #624a98;
+}
+
+.product {
+    background-color: #624a98;
+}
+
+.content{
+    margin-top: 30px;
+}
+
+.product_card {
+    background-color: #f0f0f0;
+    border: 2px solid #fff;
+    padding-left: 15px;
+    min-height: 14em;
+    overflow: hidden;
+    display: flex;
+    justify-content: flex-start;
+    border-radius: 10px;
+    margin: 20px;
+    transition: 0.7s ease;
+}
+
+.product_info{
+    padding-left: 15px;
+}
+/* .product_card:hover {
+    transform: scale(1.1);
+}
+
+.product_card:hover .project-image {
+    opacity: 0.9;
+} */
+
+.product_image img{
+    /* width: 100%; */
+    width: 366px; /* يمكنك تعديل هذا الرقم حسب حاجتك */
+    height: 206px; /* يمكنك تعديل هذا الرقم حسب حاجتك */
+    object-fit: cover; /* هذا سيحافظ على تناسب الصور مع عدم التأثير على نسب الأبعاد */
+
+}

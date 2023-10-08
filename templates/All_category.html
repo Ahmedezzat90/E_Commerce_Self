@@ -1,0 +1,25 @@
+{% extends 'Base.html' %}
+{% load static %}
+
+
+{% block style %}
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ALL Category</title>
+    
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <br>
+    <h1>All Categories</h1>
+    <br>
+    <ul class="category-list">
+        {% for Category in Categorys %}
+        <li class="category-item"><p>{{ Category.name }}</p> </li>
+        {% endfor %}
+    </ul>
+</div>
+
+{% endblock  %}

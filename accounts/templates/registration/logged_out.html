@@ -1,0 +1,8 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <p>Logged out!</p>  
+    <a href="{% url 'login'%}" style="text-decoration: none;" >Click here to login again.</a>
+    <br>
+    <a href="{% url 'Home_page'%}" style="text-decoration: none;">Click here to Home_page.</a>
+{% endblock %}
